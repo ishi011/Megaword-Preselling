@@ -225,18 +225,17 @@ function UptownArtsResidence() {
 }
 //=========================== UptownModern
 function UptownModern() {
-  const UptownModern_FacadeimagePaths = [];
-  for (let i = 1; i <= 7; i++) {
-    UptownModern_FacadeimagePaths.push(`./img/UptownModern/Facade/${i}.png`);
-  }
-  generateSlides("Facade1", UptownModern_FacadeimagePaths);
-  const UptownModern_AmenitiesimagePaths = [];
-  for (let i = 1; i <= 21; i++) {
-    UptownModern_AmenitiesimagePaths.push(
-      `./img/UptownModern/Amenities/${i}.jpg`
-    );
-  }
-  generateSlides("Amenities", UptownModern_AmenitiesimagePaths);
+ const UptownModern_FacadeimagePaths = [];
+for (let i = 1; i <= 7; i++) {
+  UptownModern_FacadeimagePaths.push(`./img/UptownModern/Facade/${i}.png`);
+}
+generateSlides("Facade1", UptownModern_FacadeimagePaths);
+
+const UptownModern_AmenitiesimagePaths = [];
+for (let i = 1; i <= 21; i++) {
+  UptownModern_AmenitiesimagePaths.push(`./img/UptownModern/Amenities/${i}.jpg`);
+}
+generateSlides("Amenities", UptownModern_AmenitiesimagePaths);
   const UptownModern_FloorplanimagePaths = [];
   for (let i = 1; i <= 5; i++) {
     UptownModern_FloorplanimagePaths.push(
@@ -325,7 +324,6 @@ function UptownModern() {
       area: 97,
     },
   ];
-
   generateGridItems("CardsUnitLayout", UptownModern_gridItemsData);
 }
 //=========================== 9CentralPark
@@ -421,28 +419,22 @@ function _9CentralPark() {
       area: 35.5,
     },
   ];
-
   generateGridItems("CardsUnitLayout", gridItemsData);
 }
 //============================================================
 function generateSlides(containerId, imagePaths) {
   const container = document.getElementById(containerId);
 
-  // Check if container exists
   if (!container) {
     console.error(`Container with ID "${containerId}" not found.`);
     return;
   }
-
   const content = container.querySelector(".__content");
   const dotsContainer = container.querySelector(".dots-container");
-
-  // Check if nested elements exist
   if (!content) {
     console.error("Content element not found inside the container.");
     return;
   }
-
   if (!dotsContainer) {
     console.error("Dots container element not found inside the container.");
     return;
@@ -450,34 +442,24 @@ function generateSlides(containerId, imagePaths) {
 
   let slideIndex = 0;
 
+  // Create slides and dots
   imagePaths.forEach((path, index) => {
-    // Create slide elements
     const slide = document.createElement("div");
-    slide.classList.add("slide", "fade");
+    slide.classList.add("slide");
     slide.innerHTML = `<img src="${path}" alt="" />`;
-
     const slide1 = document.createElement("div");
-    slide1.classList.add("slide1", "blur");
+    slide1.classList.add("slide1");
     slide1.innerHTML = `<img src="${path}" alt="" />`;
-
-    // Append slides to content
     content.appendChild(slide);
     content.appendChild(slide1);
-
-    // Create dot element
     const dot = document.createElement("span");
     dot.classList.add("dot");
-
-    // Add click event listener to dots
     dot.addEventListener("click", () => {
       showSlide(index);
     });
-
-    // Append dot to dotsContainer
     dotsContainer.appendChild(dot);
   });
 
-  // Initialize slideshow
   const slides = content.querySelectorAll(".slide");
   const slides1 = content.querySelectorAll(".slide1");
   const dots = dotsContainer.querySelectorAll(".dot");
@@ -510,27 +492,7 @@ function generateSlides(containerId, imagePaths) {
   // Show first slide initially
   showSlide(slideIndex);
 
-  // Slideshow initialization
-  const initSlides = () => {
-    slides.forEach((slide, index) => {
-      slide.classList.remove("fade");
-      slide.style.display = "none";
-    });
-    slides1.forEach((slide1, index) => {
-      slide1.classList.remove("blur");
-      slide1.style.display = "none";
-    });
-    dots.forEach((dot, index) => {
-      dot.classList.remove("active");
-    });
-
-    slides[slideIndex].classList.add("fade");
-    slides[slideIndex].style.display = "block";
-    slides1[slideIndex].classList.add("blur");
-    slides1[slideIndex].style.display = "block";
-    dots[slideIndex].classList.add("active");
-  };
-
+  // Auto slide every 10 seconds
   let slideshowInterval = setInterval(nextSlide, 10000);
 
   container.addEventListener("mouseenter", () => {
@@ -540,20 +502,6 @@ function generateSlides(containerId, imagePaths) {
   container.addEventListener("mouseleave", () => {
     slideshowInterval = setInterval(nextSlide, 10000);
   });
-
-  slides1.forEach((slide1, i) => {
-    slide1.addEventListener("click", () => {
-      showSlide(i);
-    });
-  });
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      showSlide(i);
-    });
-  });
-
-  initSlides();
 }
 
 //////////////////////////////////////////////////////////////////

@@ -148,7 +148,6 @@ article img {
   margin: auto;
   position: relative;
   border-radius: 5px;
-  border: 5px solid white;
 }
 
 #_Slider .__content .slide {
@@ -164,6 +163,7 @@ article img {
   width: auto;
   height: 100%;
   position: absolute;
+  align-items: center;
   left: 0;
   right: 0;
   top: 0;
@@ -188,14 +188,14 @@ article img {
   z-index: 0; /* Ensure the blur layer is behind the image */
 }
 
-#_Slider .__content .prev,
-#_Slider .__content .next {
-  z-index: 2; /* Ensure the image is in front of the blur layer */
+#_Slider .prev,
+#_Slider .next {
+  z-index: 2; /* Ensure the buttons are in front of the blur layer */
+  border-radius: 50%;
   cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: auto;
   padding: 10px;
   border: none;
   color: #222222;
@@ -212,11 +212,15 @@ article img {
 }
 
 #_Slider .__content .prev {
-  left: 2px;
+  left: 10px; /* Adjusted for better visibility */
 }
 
 #_Slider .__content .next {
-  right: 2px;
+  right: 10px; /* Adjusted for better visibility */
+}
+
+#_Slider .__content {
+  position: relative; /* Ensure the buttons are positioned relative to the content */
 }
 
 #_Slider .dots-container {
