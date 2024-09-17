@@ -1,6 +1,3 @@
-article {
-  margin-top: 3rem;
-}
 article h1 {
   padding-top: 20px;
   font-size: 3rem;
@@ -48,6 +45,7 @@ article img {
   max-width: 1200px;
   width: 100%;
   background-color: white;
+  padding: 0 20px;
 }
 
 #hero .left-content {
@@ -141,134 +139,118 @@ article img {
 #hero .slider {
   width: 100%;
 }
-
-#_Slider .__content {
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  position: relative;
-  border-radius: 5px;
+#_Slider {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
 }
-
-#_Slider .__content .slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
+#_Slider .slider-container {
+  position: relative;
   max-width: 100%;
-  position: relative;
+  height: 500px;
+  overflow: hidden;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  border: 5px solid #222222;
 }
 
-#_Slider .__content .slide img {
-  width: auto;
-  height: 100%;
+#_Slider .blurred-bg {
   position: absolute;
-  align-items: center;
-  left: 0;
-  right: 0;
   top: 0;
-  bottom: 0;
-  margin: auto;
-  z-index: 1;
-  border: 4px solid #222222;
-  object-fit: contain; /* Add a border around the image */
-}
-
-#_Slider .__content .slide1 img {
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  color: white;
-  filter: grayscale(14%) blur(2px) brightness(55%) opacity(70%);
-  -webkit-filter: grayscale(14%) blur(2px) brightness(55%) opacity(70%);
-  -moz-filter: grayscale(14%) blur(2px) brightness(55%) opacity(70%);
+  background-size: cover;
+  background-position: center;
+  filter: blur(25px);
+  z-index: 0;
+  border: 10px solid black;
+}
+
+#_Slider .slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+#_Slider .slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+#_Slider .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#_Slider .active {
+  display: block;
+}
+
+#_Slider .navigation {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0; /* Ensure the blur layer is behind the image */
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 2;
 }
 
 #_Slider .prev,
 #_Slider .next {
-  z-index: 2; /* Ensure the buttons are in front of the blur layer */
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
-  color: #222222;
-  font-weight: bold;
-  font-size: 50px;
-  transition: all 0.6s ease;
+  padding: 10px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
   user-select: none;
 }
 
-#_Slider .__content .prev:hover,
-#_Slider .__content .next:hover {
-  background-color: #222222;
-  color: white;
-}
-
-#_Slider .__content .prev {
-  left: 10px; /* Adjusted for better visibility */
-}
-
-#_Slider .__content .next {
-  right: 10px; /* Adjusted for better visibility */
-}
-
-#_Slider .__content {
-  position: relative; /* Ensure the buttons are positioned relative to the content */
+#_Slider .prev:hover,
+#_Slider .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 #_Slider .dots-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  position: absolute;
+  bottom: 2px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
 }
 
-#_Slider .dots-container .dot {
-  cursor: pointer;
-  margin: 5px;
-  width: 12px;
-  height: 12px;
+#_Slider .dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #bbb;
   border-radius: 50%;
-  background-color: #d8d8d8;
+  display: inline-block;
 }
 
-#_Slider .dots-container .dot.active {
-  background: #404040;
+#_Slider .dot.active {
+  background-color: #222222;
 }
-@media screen and (max-width: 999px) {
-  #_Slider .__content .slide {
-    height: 400px; /* Set maximum height to 190px */
-    max-width: 100%;
-  }
-  #_Slider .__content .slide img {
-    height: 100%; /* Ensure the image fills the slide height */
-    width: 100%; /* Allow the image to maintain its aspect ratio */
-  }
-}
-/* Responsive styles */
-@media screen and (max-width: 800px) {
-  #_Slider .dots-container {
+@media screen and (max-width: 900px) {
+  #_Slider .dot {
     display: none;
   }
-  #_Slider .__content .slide {
-    max-height: 250px;
-  }
-  #_Slider .__content .slide img {
-    max-width: auto; /* Limits the image's width to 100% of its parent container */
-    max-height: 100%; /* Limits the image's height to 100% of its parent container */
-  }
-  #_Slider .__content .prev,
-  #_Slider .__content .next {
-    font-size: 24px; /* Decrease button font size */
-    padding: 8px; /* Decrease button padding */
+}
+@media screen and (max-width: 768px) {
+  #_Slider .slider-container {
+    height: 300px;
   }
 }
+
 #_Content img {
   width: 100%;
   height: 40%;

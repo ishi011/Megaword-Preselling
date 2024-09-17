@@ -1,35 +1,7 @@
 $(document).ready(function() {
-  // Load header and footer
-  $("#header").load("header.html");
-  $("#footer").load("footer.html");
-
-  // Function to handle showing content after loading
-  function showContent() {
-    const loader = document.getElementById("loader");
-    const content = document.getElementById("content");
-
-    // Fade out loader
-    loader.classList.add("fade-out");
-
-    // After fade-out, remove loader and show content
-    setTimeout(function() {
-      loader.style.display = "none";
-      content.style.display = "block";
-    }, 500); // Time should match the CSS transition duration (0.5s)
-  }
-
-  // Check if header and footer have been loaded
-  $("#header, #footer").on('load', function() {
-    // All required elements are loaded, show content
-    showContent();
-  });
-
-  // Handle window load event to ensure all resources are loaded
-  window.addEventListener("load", function() {
-    setTimeout(function() {
-      showContent();
-    }, 2000); // Simulated load time of 2 seconds
-  });
+  // Load header and footer with cache-busting to prevent loading old cached versions
+  $("#header").load("header.html?" + new Date().getTime());
+  $("#footer").load("footer.html?" + new Date().getTime());
 });
 
 document.getElementById("myForm").addEventListener("submit", function (event) {

@@ -1,457 +1,390 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-  if (document.getElementById("ParkMckinleyWest")) {
-    ParkMckinleyWest();
-  }
-  if (document.getElementById("UptownArtsResidence")) {
-    UptownArtsResidence();
-  }
-  if (document.getElementById("UptownModern")) {
-    UptownModern();
-  }
-  if (document.getElementById("9CentralPark")) {
-    _9CentralPark();
-  }
+  const elementIds = [
+    "ParkMckinleyWest",
+    "UptownArtsResidence",
+    "UptownModern",
+    "_9CentralPark" // Changed from 9CentralPark to CentralPark9
+  ];
+
+  elementIds.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      // Call the function corresponding to the ID
+      const functionName = id.charAt(0).toUpperCase() + id.slice(1);
+      if (typeof window[functionName] === "function") {
+        window[functionName]();
+      }
+    }
+  });
 });
+
 //=========================== ParkMckinleyWest
 function ParkMckinleyWest() {
-  const ParkMckinleyWestfacadeImagePaths = [
-    "./img/ParkMckinleyWest/Facade/1.png",
-    "./img/ParkMckinleyWest/Facade/2.png",
-    "./img/ParkMckinleyWest/Facade/3.png",
-    "./img/ParkMckinleyWest/Facade/4.png",
-    "./img/ParkMckinleyWest/Facade/5.png",
-    "./img/ParkMckinleyWest/Facade/6.png",
-    "./img/ParkMckinleyWest/Facade/7.png",
-    "./img/ParkMckinleyWest/Facade/8.png",
-    "./img/ParkMckinleyWest/Facade/9.png",
-  ];
+  const ParkMckinleyWestfacadeImagePaths = Array.from({ length: 9 }, (_, i) => `./img/ParkMckinleyWest/Facade/${i + 1}.webp`);
   generateSlides("Facade1", ParkMckinleyWestfacadeImagePaths);
-
-  const ParkMckinleyWestactualImagePaths = [
-    "./img/ParkMckinleyWest/1BedroomUnit/1.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/2.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/3.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/4.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/5.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/6.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/7.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/8.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/9.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/10.png",
-    "./img/ParkMckinleyWest/1BedroomUnit/11.png",
-  ];
+  const ParkMckinleyWestactualImagePaths = Array.from({ length: 11 }, (_, i) => `./img/ParkMckinleyWest/1BedroomUnit/${i + 1}.webp`);
   generateSlides("Actual1", ParkMckinleyWestactualImagePaths);
-
-  const ParkMckinleyWestactualImagePaths2 = [
-    "./img/ParkMckinleyWest/2BedroomUnit/1.png",
-    "./img/ParkMckinleyWest/2BedroomUnit/2.png",
-    "./img/ParkMckinleyWest/2BedroomUnit/3.png",
-    "./img/ParkMckinleyWest/2BedroomUnit/4.png",
-    "./img/ParkMckinleyWest/2BedroomUnit/5.png",
-    "./img/ParkMckinleyWest/2BedroomUnit/6.png",
-    "./img/ParkMckinleyWest/2BedroomUnit/7.png",
-    "./img/ParkMckinleyWest/2BedroomUnit/8.png",
-  ];
+  const ParkMckinleyWestactualImagePaths2 = Array.from({ length: 8 }, (_, i) => `./img/ParkMckinleyWest/2BedroomUnit/${i + 1}.webp`);
   generateSlides("Actual2", ParkMckinleyWestactualImagePaths2);
-
-  const ParkMckinleyWestFloorplanImagePaths = [
-    "./img/ParkMckinleyWest/Floorplan/1.png",
-    "./img/ParkMckinleyWest/Floorplan/2.png",
-    "./img/ParkMckinleyWest/Floorplan/3.png",
-    "./img/ParkMckinleyWest/Floorplan/4.png",
-    "./img/ParkMckinleyWest/Floorplan/5.png",
-    "./img/ParkMckinleyWest/Floorplan/6.png",
-  ];
+  const ParkMckinleyWestFloorplanImagePaths = Array.from({ length: 6 }, (_, i) => `./img/ParkMckinleyWest/Floorplan/${i + 1}.webp`);
   generateSlides("Floorplan", ParkMckinleyWestFloorplanImagePaths);
   const ParkMckinleyWestgridItemsData = [
     {
-      imageSrc: "./img/ParkMckinleyWest/UnitLayout/1.png",
+      imageSrc: "./img/ParkMckinleyWest/UnitLayout/1.webp",
       title: "1 Bedroom Unit with Balcony",
       subtitle: "",
       area: 35,
     },
     {
-      imageSrc: "./img/ParkMckinleyWest/UnitLayout/2.png",
+      imageSrc: "./img/ParkMckinleyWest/UnitLayout/2.webp",
       title: "1 Bedroom Unit with Balcony",
       subtitle: "",
       area: 48,
     },
     {
-      imageSrc: "./img/ParkMckinleyWest/UnitLayout/3.png",
+      imageSrc: "./img/ParkMckinleyWest/UnitLayout/3.webp",
       title: "2 Bedroom Unit with Balcony",
       subtitle: "",
       area: 110,
     },
     {
-      imageSrc: "./img/ParkMckinleyWest/UnitLayout/4.png",
+      imageSrc: "./img/ParkMckinleyWest/UnitLayout/4.webp",
       title: "2 Bedroom Unit with Balcony",
       subtitle: "",
       area: 106,
     },
     {
-      imageSrc: "./img/ParkMckinleyWest/UnitLayout/5.png",
+      imageSrc: "./img/ParkMckinleyWest/UnitLayout/5.webp",
       title: "2 Bedroom Unit with Balcony",
       subtitle: "",
       area: 106,
     },
     {
-      imageSrc: "./img/ParkMckinleyWest/UnitLayout/6.png",
+      imageSrc: "./img/ParkMckinleyWest/UnitLayout/6.webp",
       title: "3 Bedroom Unit with Balcony",
       subtitle: "",
       area: 118.5,
     },
     {
-      imageSrc: "./img/ParkMckinleyWest/UnitLayout/7.png",
+      imageSrc: "./img/ParkMckinleyWest/UnitLayout/7.webp",
       title: "3 Bedroom PH with Balcony",
       subtitle: "",
       area: 212,
     },
     {
-      imageSrc: "./img/ParkMckinleyWest/UnitLayout/8.png",
+      imageSrc: "./img/ParkMckinleyWest/UnitLayout/8.webp",
       title: "5 Bedroom Unit with Balcony",
       subtitle: "",
       area: 339.5,
     },
     {
-      imageSrc: "./img/ParkMckinleyWest/UnitLayout/9.png",
+      imageSrc: "./img/ParkMckinleyWest/UnitLayout/9.webp",
       title: "Executive 1 Bedroom PH with Balcony",
       subtitle: "",
       area: 70.5,
     },
     // Add more objects for each grid item...
-  ];
+];
   generateGridItems("CardsUnitLayout", ParkMckinleyWestgridItemsData);
 }
 //=========================== UptownArtsResidence
 function UptownArtsResidence() {
-  const UptownArtsResidence_FacadeimagePaths = [
-    "./img/UptownArtsResidence/Facade/1.png",
-    "./img/UptownArtsResidence/Facade/2.png",
-    "./img/UptownArtsResidence/Facade/3.png",
-    "./img/UptownArtsResidence/Facade/4.png",
-    "./img/UptownArtsResidence/Facade/5.png",
-    "./img/UptownArtsResidence/Facade/6.png",
-    "./img/UptownArtsResidence/Facade/7.png",
-    "./img/UptownArtsResidence/Facade/8.png",
-    "./img/UptownArtsResidence/Facade/9.png",
-  ];
-  generateSlides("Facade1", UptownArtsResidence_FacadeimagePaths);
-  const UptownArtsResidence_FloorplanimagePaths = [
-    "./img/UptownArtsResidence/Floorplan/1.png",
-    "./img/UptownArtsResidence/Floorplan/2.png",
-    "./img/UptownArtsResidence/Floorplan/3.png",
-    "./img/UptownArtsResidence/Floorplan/4.png",
-    "./img/UptownArtsResidence/Floorplan/5.png",
-    "./img/UptownArtsResidence/Floorplan/6.png",
-  ];
-  generateSlides("Floorplan", UptownArtsResidence_FloorplanimagePaths);
-  const UptownArtsResidence_gridItemsData = [
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/1.png",
-      title: "3 Bedroom with Balcony",
-      subtitle: "UNIT A",
-      area: 128.5,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/2.png",
-      title: "1 Bedroom Unit with Balcony",
-      subtitle: "UNIT B, C, D, E & H",
-      area: 41.5,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/3.png",
-      title: "Executive 2 Bedroom with Balconyy",
-      subtitle: "UNIT F",
-      area: 96,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/4.png",
-      title: "2 Bedroom with Balcony",
-      subtitle: "UNIT I",
-      area: 84,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/5.png",
-      title: "1 Bedroom with Balcony",
-      subtitle: "UNIT J",
-      area: 57,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/6.png",
-      title: "Executive 1 Bedroom with Balcony",
-      subtitle: "UNIT K",
-      area: 58.5,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/7.png",
-      title: "3 Bedroom with Balcony",
-      subtitle: "UNIT A",
-      area: 125.5,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/8.png",
-      title: "Executive 2 Bedroom with Balcony",
-      subtitle: "UNIT F",
-      area: 96.5,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/9.png",
-      title: "2 Bedroom with Balcony",
-      subtitle: "UNIT I",
-      area: 84,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/10.png",
-      title: "Executive 1 Bedroom with Balcony",
-      subtitle: "UNIT K",
-      area: 60,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/11.png",
-      title: "Executive 2 Bedroom with Balcony",
-      subtitle: "UNIT F",
-      area: 97,
-    },
-    {
-      imageSrc: "./img/UptownArtsResidence/UnitLayouts/12.png",
-      title: "Executive 1 Bedroom with Balcony",
-      subtitle: "UNIT K",
-      area: 60.5,
-    },
-    // Add more objects for each grid item...
-  ];
+const UptownArtsResidence_FacadeimagePaths = Array.from({ length: 9 }, (_, i) => `./img/UptownArtsResidence/Facade/${i + 1}.webp`);
+generateSlides("Facade1", UptownArtsResidence_FacadeimagePaths);
+const UptownArtsResidence_FloorplanimagePaths = Array.from({ length: 6 }, (_, i) => `./img/UptownArtsResidence/Floorplan/${i + 1}.webp`);
+generateSlides("Floorplan", UptownArtsResidence_FloorplanimagePaths);
+const UptownArtsResidence_gridItemsData = [
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/1.webp",
+    title: "3 Bedroom with Balcony",
+    subtitle: "UNIT A",
+    area: 128.5,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/2.webp",
+    title: "1 Bedroom Unit with Balcony",
+    subtitle: "UNIT B, C, D, E & H",
+    area: 41.5,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/3.webp",
+    title: "Executive 2 Bedroom with Balcony",
+    subtitle: "UNIT F",
+    area: 96,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/4.webp",
+    title: "2 Bedroom with Balcony",
+    subtitle: "UNIT I",
+    area: 84,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/5.webp",
+    title: "1 Bedroom with Balcony",
+    subtitle: "UNIT J",
+    area: 57,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/6.webp",
+    title: "Executive 1 Bedroom with Balcony",
+    subtitle: "UNIT K",
+    area: 58.5,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/7.webp",
+    title: "3 Bedroom with Balcony",
+    subtitle: "UNIT A",
+    area: 125.5,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/8.webp",
+    title: "Executive 2 Bedroom with Balcony",
+    subtitle: "UNIT F",
+    area: 96.5,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/9.webp",
+    title: "2 Bedroom with Balcony",
+    subtitle: "UNIT I",
+    area: 84,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/10.webp",
+    title: "Executive 1 Bedroom with Balcony",
+    subtitle: "UNIT K",
+    area: 60,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/11.webp",
+    title: "Executive 2 Bedroom with Balcony",
+    subtitle: "UNIT F",
+    area: 97,
+  },
+  {
+    imageSrc: "./img/UptownArtsResidence/UnitLayouts/12.webp",
+    title: "Executive 1 Bedroom with Balcony",
+    subtitle: "UNIT K",
+    area: 60.5,
+  },
+  // Add more objects for each grid item...
+];
   generateGridItems("CardsUnitLayout", UptownArtsResidence_gridItemsData);
 }
 //=========================== UptownModern
 function UptownModern() {
- const UptownModern_FacadeimagePaths = [];
-for (let i = 1; i <= 7; i++) {
-  UptownModern_FacadeimagePaths.push(`./img/UptownModern/Facade/${i}.png`);
-}
+const UptownModern_FacadeimagePaths = Array.from({ length: 7 }, (_, i) => `./img/UptownModern/Facade/${i + 1}.webp`);
 generateSlides("Facade1", UptownModern_FacadeimagePaths);
-
-const UptownModern_AmenitiesimagePaths = [];
-for (let i = 1; i <= 21; i++) {
-  UptownModern_AmenitiesimagePaths.push(`./img/UptownModern/Amenities/${i}.jpg`);
-}
+const UptownModern_AmenitiesimagePaths = Array.from({ length: 21 }, (_, i) => `./img/UptownModern/Amenities/${i + 1}.webp`);
 generateSlides("Amenities", UptownModern_AmenitiesimagePaths);
-  const UptownModern_FloorplanimagePaths = [];
-  for (let i = 1; i <= 5; i++) {
-    UptownModern_FloorplanimagePaths.push(
-      `./img/UptownModern/Floorplan/${i}.png`
-    );
-  }
-  generateSlides("Floorplan", UptownModern_FloorplanimagePaths);
-  const UptownModern_UnitRenderimagePaths = [];
-  for (let i = 1; i <= 11; i++) {
-    UptownModern_UnitRenderimagePaths.push(
-      `./img/UptownModern/UnitRenders/${i}.jpg`
-    );
-  }
-  generateSlides("UnitRender", UptownModern_UnitRenderimagePaths);
-  const UptownModern_gridItemsData = [
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/1.png",
-      title: "Studio",
-      subtitle: "UNIT A",
-      area: 40,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/2.png",
-      title: "2 Bedroom with Balcony",
-      subtitle: "UNIT A",
-      area: 92,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/3.png",
-      title: "Studio with Balcony",
-      subtitle: "UNIT B",
-      area: 44.5,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/4.png",
-      title: "2 Bedroom with Balcony",
-      subtitle: "UNIT P",
-      area: 86,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/5.png",
-      title: "3 Bedroom with Balcony",
-      subtitle: "UNIT A",
-      area: 125.5,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/6.png",
-      title: "3 Bedroom with Balcony",
-      subtitle: "UNIT A",
-      area: 127,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/7.png",
-      title: "1 Bedroom with Balcony",
-      subtitle: "UNIT E",
-      area: 58.5,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/8.png",
-      title: "1 Bedroom with Balcony",
-      subtitle: "UNIT H",
-      area: 51,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/9.png",
-      title: "Studio with Balcony",
-      subtitle: "UNIT AA",
-      area: 48.5,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/10.png",
-      title: "3 Bedroom with Balcony",
-      subtitle: "UNIT C",
-      area: 134.5,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/11.png",
-      title: "1 Bedroom with Balcony",
-      subtitle: "UNIT B",
-      area: 64.5,
-    },
-    {
-      imageSrc: "./img/UptownModern/UnitLayouts/12.png",
-      title: "2 Bedroom with Balcony",
-      subtitle: "UNIT E",
-      area: 97,
-    },
-  ];
+const UptownModern_FloorplanimagePaths = Array.from({ length: 5 }, (_, i) => `./img/UptownModern/Floorplan/${i + 1}.webp`);
+generateSlides("Floorplan", UptownModern_FloorplanimagePaths);
+const UptownModern_UnitRenderimagePaths = Array.from({ length: 11 }, (_, i) => `./img/UptownModern/UnitRenders/${i + 1}.webp`);
+generateSlides("UnitRender", UptownModern_UnitRenderimagePaths);
+const UptownModern_gridItemsData = [
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/1.webp",
+    title: "Studio",
+    subtitle: "UNIT A",
+    area: 40,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/2.webp",
+    title: "2 Bedroom with Balcony",
+    subtitle: "UNIT A",
+    area: 92,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/3.webp",
+    title: "Studio with Balcony",
+    subtitle: "UNIT B",
+    area: 44.5,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/4.webp",
+    title: "2 Bedroom with Balcony",
+    subtitle: "UNIT P",
+    area: 86,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/5.webp",
+    title: "3 Bedroom with Balcony",
+    subtitle: "UNIT A",
+    area: 125.5,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/6.webp",
+    title: "3 Bedroom with Balcony",
+    subtitle: "UNIT A",
+    area: 127,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/7.webp",
+    title: "1 Bedroom with Balcony",
+    subtitle: "UNIT E",
+    area: 58.5,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/8.webp",
+    title: "1 Bedroom with Balcony",
+    subtitle: "UNIT H",
+    area: 51,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/9.webp",
+    title: "Studio with Balcony",
+    subtitle: "UNIT AA",
+    area: 48.5,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/10.webp",
+    title: "3 Bedroom with Balcony",
+    subtitle: "UNIT C",
+    area: 134.5,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/11.webp",
+    title: "1 Bedroom with Balcony",
+    subtitle: "UNIT B",
+    area: 64.5,
+  },
+  {
+    imageSrc: "./img/UptownModern/UnitLayouts/12.webp",
+    title: "2 Bedroom with Balcony",
+    subtitle: "UNIT E",
+    area: 97,
+  },
+];
+
   generateGridItems("CardsUnitLayout", UptownModern_gridItemsData);
 }
 //=========================== 9CentralPark
 function _9CentralPark() {
-  const UptownModern_FacadeimagePaths = [];
-  for (let i = 1; i <= 22; i++) {
-    UptownModern_FacadeimagePaths.push(`./img/_9CentralPark/Facade/${i}.jpg`);
-  }
-  generateSlides("Facade1", UptownModern_FacadeimagePaths);
-  const UptownModern_FloorplanimagePaths = [];
-  for (let i = 1; i <= 7; i++) {
-    UptownModern_FloorplanimagePaths.push(
-      `./img/_9CentralPark/Floorplan/${i}.png`
-    );
-  }
-  generateSlides("Floorplan", UptownModern_FloorplanimagePaths);
-  const UnitRenderimagePaths = [];
-  for (let i = 1; i <= 32; i++) {
-    UnitRenderimagePaths.push(`./img/_9CentralPark/UnitRenders/${i}.jpg`);
-  }
+  const UptownModern_FacadeimagePaths = Array.from({ length: 22 }, (_, i) => `./img/_9CentralPark/Facade/${i + 1}.webp`);
+  generateSlides("Facade", UptownModern_FacadeimagePaths);
+  const UnitRenderimagePaths = Array.from({ length: 32 }, (_, i) => `./img/_9CentralPark/UnitRenders/${i + 1}.webp`);
   generateSlides("UnitRender", UnitRenderimagePaths);
+  const UptownModern_FloorplanimagePaths = Array.from({ length: 7 }, (_, i) => `./img/_9CentralPark/Floorplan/${i + 1}.webp`);
+  generateSlides("Floorplan", UptownModern_FloorplanimagePaths);
   const gridItemsData = [
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/1.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/1.webp",
       title: "1 Bedroom with Balcony",
       subtitle: "UNIT A",
       area: 55.5,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/2.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/2.webp",
       title: "1 Bedroom with Balcony",
       subtitle: "UNIT C",
       area: 59,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/3.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/3.webp",
       title: "1 Bedroom with Balcony",
       subtitle: "UNIT C",
       area: 35.5,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/4.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/4.webp",
       title: "Studio with Balcony",
       subtitle: "UNIT B",
       area: 36.5,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/5.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/5.webp",
       title: "2 Bedroom with Balcony",
       subtitle: "UNIT A",
       area: 100,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/6.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/6.webp",
       title: "1 Bedroom with Balcony",
       subtitle: "UNIT E",
       area: 66,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/7.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/7.webp",
       title: "Studio with Balcony",
       subtitle: "UNIT N",
       area: 36.5,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/8.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/8.webp",
       title: "1 Bedroom with Balcony",
       subtitle: "UNIT D",
       area: 54,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/9.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/9.webp",
       title: "2 Bedroom with Balcony",
       subtitle: "UNIT A",
       area: 93,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/10.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/10.webp",
       title: "Studio with Balcony",
       subtitle: "UNIT H",
       area: 35.5,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/11.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/11.webp",
       title: "Studio with Balcony",
       subtitle: "UNIT E",
       area: 36.5,
     },
     {
-      imageSrc: "./img/_9CentralPark/UnitLayout/12.png",
+      imageSrc: "./img/_9CentralPark/UnitLayout/12.webp",
       title: "Studio with Balcony",
       subtitle: "UNIT F",
       area: 35.5,
     },
   ];
+
   generateGridItems("CardsUnitLayout", gridItemsData);
 }
 //============================================================
 function generateSlides(containerId, imagePaths) {
   const container = document.getElementById(containerId);
-
-  if (!container) {
-    console.error(`Container with ID "${containerId}" not found.`);
-    return;
-  }
-  const content = container.querySelector(".__content");
+  const content = container.querySelector(".slider");
   const dotsContainer = container.querySelector(".dots-container");
-  if (!content) {
-    console.error("Content element not found inside the container.");
-    return;
-  }
-  if (!dotsContainer) {
-    console.error("Dots container element not found inside the container.");
-    return;
-  }
+  const blurBackground = container.querySelector(".blurred-bg");
 
   let slideIndex = 0;
+
+  if (!content || !dotsContainer || !blurBackground) {
+    console.error(`Container elements for "${containerId}" are missing.`);
+    return;
+  }
+
+  if (imagePaths.length === 0) {
+    console.error("No images provided for the slider.");
+    return;
+  }
 
   // Create slides and dots
   imagePaths.forEach((path, index) => {
     const slide = document.createElement("div");
     slide.classList.add("slide");
-    slide.innerHTML = `<img src="${path}" alt="" />`;
-    const slide1 = document.createElement("div");
-    slide1.classList.add("slide1");
-    slide1.innerHTML = `<img src="${path}" alt="" />`;
+
+    // Create responsive image element
+    const imgSrc = path;
+    slide.innerHTML = `
+      <img 
+        src="${imgSrc}" 
+        alt="Slide ${index + 1}" 
+        loading="lazy" 
+        decoding="async"
+        srcset="${imgSrc.replace('default', 'small')} 600w, 
+                ${imgSrc.replace('default', 'medium')} 1200w, 
+                ${imgSrc.replace('default', 'large')} 1800w" 
+        sizes="(max-width: 600px) 600px, 
+               (max-width: 1200px) 1200px, 
+               1800px" 
+      />
+    `;
+
     content.appendChild(slide);
-    content.appendChild(slide1);
+
     const dot = document.createElement("span");
     dot.classList.add("dot");
     dot.addEventListener("click", () => {
@@ -461,17 +394,17 @@ function generateSlides(containerId, imagePaths) {
   });
 
   const slides = content.querySelectorAll(".slide");
-  const slides1 = content.querySelectorAll(".slide1");
   const dots = dotsContainer.querySelectorAll(".dot");
 
   const showSlide = (index) => {
-    slides.forEach((slide) => (slide.style.display = "none"));
-    slides1.forEach((slide1) => (slide1.style.display = "none"));
+    slides.forEach((slide) => slide.style.display = "none");
     dots.forEach((dot) => dot.classList.remove("active"));
 
     slides[index].style.display = "block";
-    slides1[index].style.display = "block";
     dots[index].classList.add("active");
+
+    // Update blurred background with the current slide image
+    blurBackground.style.backgroundImage = `url(${imagePaths[index].replace('default', 'large')})`;
 
     slideIndex = index;
   };
@@ -492,15 +425,16 @@ function generateSlides(containerId, imagePaths) {
   // Show first slide initially
   showSlide(slideIndex);
 
-  // Auto slide every 10 seconds
-  let slideshowInterval = setInterval(nextSlide, 10000);
+  // Auto slide every 5 seconds
+  let slideshowInterval = setInterval(nextSlide, 5000);
 
+  // Pause slideshow on hover
   container.addEventListener("mouseenter", () => {
     clearInterval(slideshowInterval);
   });
 
   container.addEventListener("mouseleave", () => {
-    slideshowInterval = setInterval(nextSlide, 10000);
+    slideshowInterval = setInterval(nextSlide, 5000);
   });
 }
 
@@ -518,6 +452,8 @@ function generateGridItems(containerId, gridItemsData) {
     // Create image element
     const image = document.createElement("img");
     image.src = itemData.imageSrc;
+    image.loading = "lazy";
+    image.alt = itemData.title;
 
     // Create title element
     const title = document.createElement("div");
@@ -537,7 +473,7 @@ function generateGridItems(containerId, gridItemsData) {
 
     // Create "GET QUOTE" button
     const quoteBtn = document.createElement("a");
-    quoteBtn.href = "./ContactUs";
+    quoteBtn.href = "./Contact.html";
     quoteBtn.classList.add("btn");
     quoteBtn.textContent = "GET QUOTE";
 
